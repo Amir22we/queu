@@ -640,7 +640,7 @@ async def promote_next(
     if entry["source"] == "web":
 
         text = (
-            f"⏳ {user}, теперь твоя очередь.\n\n"
+            f"{user}, теперь твоя очередь.\n\n"
             f"Подтверди присутствие через вебку "
             f"в течение {CONFIRM_MINUTES} мин."
         )
@@ -655,7 +655,7 @@ async def promote_next(
     else:
 
         text = (
-            f"⏳ {user}, теперь твоя очередь!\n\n"
+            f"{user}, теперь твоя очередь!\n\n"
             f"Отправь «+» в течение "
             f"{CONFIRM_MINUTES} мин."
         )
@@ -732,7 +732,7 @@ async def activate(
         context,
         entry["chat_id"],
         (
-            f"🟢 {user} {source_text}.\n\n"
+            f"{user} {source_text}.\n\n"
             f"Очередь началась.\n"
             f"Время: "
             f"{start:%H:%M}"
@@ -786,7 +786,7 @@ async def confirm_timeout(
         context,
         data["chat_id"],
         (
-            f"⌛ {user} не подтвердил "
+            f"{user} не подтвердил "
             f"очередь вовремя.\n"
             f"Переходим к следующему."
         ),
@@ -850,7 +850,7 @@ async def warning(
         )
 
         text = (
-            f"⚠️ {user}, до конца твоей "
+            f"{user}, до конца твоей "
             f"очереди осталось {minutes} мин.\n\n"
             f"{next_user}, ты следующий. "
             f"Твоя очередь начнётся примерно "
@@ -860,7 +860,7 @@ async def warning(
     else:
 
         text = (
-            f"⚠️ {user}, до конца твоей "
+            f"{user}, до конца твоей "
             f"очереди осталось {minutes} мин."
         )
 
@@ -909,7 +909,7 @@ async def complete(
         context,
         data["chat_id"],
         (
-            f"⏱ {user}, твоя очередь "
+            f"{user}, твоя очередь "
             f"закончилась."
         ),
     )
@@ -1277,7 +1277,7 @@ async def join(
 
     await update.message.reply_text(
         (
-            f"➕ {mention(user.id, display_name)} "
+            f"{mention(user.id, display_name)} "
             f"встал в очередь.\n"
             f"Позиция: "
             f"{position(chat_id, entry_id)}"
@@ -1332,7 +1332,7 @@ async def leave(
 
     await update.message.reply_text(
         (
-            f"❌ "
+            f""
             f"{mention(user.id, entry['display_name'])} "
             f"вышел из очереди."
         ),
@@ -1407,7 +1407,7 @@ async def status(
         return
 
     lines = [
-        "📋 Очередь:"
+        "Очередь:"
     ]
 
     for index, entry in enumerate(
@@ -1437,13 +1437,13 @@ async def status(
             )
 
             state = (
-                f"🟢 сейчас "
+                f"сейчас "
                 f"(осталось ~{minutes} мин)"
             )
 
         elif entry["status"] == "confirming":
 
-            state = "⏳ подтверждает"
+            state = "подтверждает"
 
         else:
 

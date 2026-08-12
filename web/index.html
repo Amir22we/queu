@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Очередь</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <header class="header">
+        <div>
+            <div class="logo">queue</div>
+            <div class="subtitle">живая очередь</div>
+        </div>
+
+        <div id="userBox" class="user-box hidden">
+            <span id="currentNickname"></span>
+            <button id="logoutButton" class="ghost-button">
+                выйти
+            </button>
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- Регистрация -->
+
+        <section id="registerScreen" class="screen">
+
+            <div class="register-card">
+
+                <div class="icon">
+                    Q
+                </div>
+
+                <h1>Вход в очередь</h1>
+
+                <p>
+                    Введи свой ник. Пароль не нужен.
+                </p>
+
+                <form id="registerForm">
+
+                    <input
+                        id="nicknameInput"
+                        type="text"
+                        maxlength="32"
+                        minlength="2"
+                        placeholder="например крутой чел"
+                        autocomplete="off"
+                        required
+                    >
+
+                    <button
+                        type="submit"
+                        class="primary-button"
+                    >
+                        войти
+                    </button>
+
+                </form>
+
+                <div
+                    id="registerError"
+                    class="error hidden"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Очереди -->
+
+        <section id="queueScreen" class="screen hidden">
+
+            <div class="page-title">
+                <div>
+                    <h1>Очереди</h1>
+                    <p>
+                        изменения обновляются автоматически
+                    </p>
+                </div>
+
+                <div
+                    id="connectionStatus"
+                    class="connection-status"
+                >
+                    <span></span>
+                    подключено
+                </div>
+            </div>
+
+
+            <div id="queuesContainer"></div>
+
+
+            <div
+                id="emptyState"
+                class="empty hidden"
+            >
+                <div class="empty-icon">
+                    ∅
+                </div>
+
+                <h2>очередей пока нет</h2>
+
+                <p>
+                    Подожди, пока появится первая очередь.
+                </p>
+            </div>
+
+        </section>
+        <section
+    id="historySection"
+    class="history-section"
+>
+    <div class="page-title">
+        <div>
+            <h2>Моя история</h2>
+
+            <p>
+                последние слоты
+            </p>
+        </div>
+    </div>
+
+    <div id="historyContainer">
+        <div class="history-empty">
+            истории пока нет
+        </div>
+    </div>
+</section>
+    </main>
+
+</div>
+
+
+<div
+    id="toast"
+    class="toast hidden"
+></div>
+
+
+<script src="/app.js"></script>
+
+</body>
+</html>
